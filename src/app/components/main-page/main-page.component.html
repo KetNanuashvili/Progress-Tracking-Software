@@ -1,1 +1,253 @@
-<p>main-page works!</p>
+<main class="main-page">
+    <h1 class="title">დავალებების გვერდი</h1>
+    <div class="filter-container">
+      <div class="buttons" (click)="changeStyle('department')">
+        <button class="department-button" [ngClass]="{'active': activeButton === 'department'}">დეპარტამენტი </button>
+        <img [src]="activeButton === 'department' ? '../../../assets/Shape.png' : '../../../assets/blackIcon.png'" 
+             [ngClass]="{'custom-img': activeButton === 'department'}" alt="">
+      </div>
+    
+      <div class="buttons" (click)="changeStyle('priority')">
+        <button class="department-button" [ngClass]="{'active': activeButton === 'priority'}">პრიორიტეტი</button>
+        <img [src]="activeButton === 'priority' ? '../../../assets/Shape.png' : '../../../assets/blackIcon.png'" 
+             [ngClass]="{'custom-img': activeButton === 'priority'}" alt="">
+      </div>
+    
+      <div class="buttons" (click)="changeStyle('employee')">
+        <button class="department-button" [ngClass]="{'active': activeButton === 'employee'}">თანამშრომელი</button>
+        <img [src]="activeButton === 'employee' ? '../../../assets/Shape.png' : '../../../assets/blackIcon.png'" 
+             [ngClass]="{'custom-img': activeButton === 'employee'}" alt="">
+      </div>
+    </div>
+
+
+
+    <div class="info-from-data">
+      
+
+    <div >
+      <button class="info">
+        დასაწყები
+      </button>
+  
+        <div class="custom-button">
+          <div class="header-cutom">
+         <div class="left-custom">
+          <div class="dropdown">
+            <button class="dropdown-button" (click)="toggleDropdown()" >
+              საშუალო
+            </button>
+            <div class="dropdown-content" *ngIf="dropdownVisible">
+              <a href="#">Option 1</a>
+              <a href="#">Option 2</a>
+              <a href="#">Option 3</a>
+            </div>
+      
+          </div>
+          <div style="margin-left:16px">
+            <button class="design-button">დიზაინი</button>
+          </div>
+         </div>
+            <div>
+              <p class="dregister-date">22 იანვ, 2022</p>
+            </div>
+          </div>
+  
+          
+        <div class="middle-comment-div">
+          <h3>Redberry-ს საიტის ლენდინგის დიზაინი </h3>
+          <p class="comment-p">შექმენი საიტის მთავარი გვერდი, რომელიც მოიცავს მთავარ სექციებს, ნავიგაციას.</p>
+        </div>
+
+
+
+        <div style="width: 320px; display: flex; justify-content: space-between;">
+          <div style="width: 31px; height: 31px;  border-radius: 50%; object-fit: cover;">
+            <img src="../../../assets/Vector.png" alt="">
+          </div>
+          <div >
+            <img src="../../../assets/Vector.png" alt="">
+            <span style="font-family: FiraGO;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            top: 0%;
+            ">8</span>
+          </div>
+        </div>
+        </div>
+        
+      </div>
+
+      
+
+    <div>
+      <button class="info color2">
+        პროგრესში
+      </button>
+      
+
+      <div class="custom-button buttom-for-progress">
+        <div class="header-cutom">
+       <div class="left-custom">
+        <div class="dropdown">
+          <button class="dropdown-button" (click)="toggleDropdown()" >
+            საშუალო
+          </button>
+          <div class="dropdown-content" *ngIf="dropdownVisible">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+          </div>
+    
+        </div>
+        <div style="margin-left:16px">
+          <button class="design-button">დიზაინი</button>
+        </div>
+       </div>
+          <div>
+            <p class="dregister-date">22 იანვ, 2022</p>
+          </div>
+        </div>
+
+        
+      <div class="middle-comment-div">
+        <h3>Redberry-ს საიტის ლენდინგის დიზაინი </h3>
+        <p class="comment-p">შექმენი საიტის მთავარი გვერდი, რომელიც მოიცავს მთავარ სექციებს, ნავიგაციას.</p>
+      </div>
+
+
+
+      <div style="width: 320px; display: flex; justify-content: space-between;">
+        <div style="width: 31px; height: 31px;  border-radius: 50%; object-fit: cover;">
+          <img src="../../../assets/Vector.png" alt="">
+        </div>
+        <div >
+          <img src="../../../assets/Vector.png" alt="">
+          <span style="font-family: FiraGO;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          top: 0%;
+          ">8</span>
+        </div>
+      </div>
+      </div>
+      
+    </div>
+
+    <div>
+      <button class="info color3">
+        მზად ტესტირებისთვის
+      </button>
+      
+      <div class="custom-button buttom-for-ready" >
+        <div class="header-cutom">
+       <div class="left-custom">
+        <div class="dropdown">
+          <button class="dropdown-button" (click)="toggleDropdown()" >
+            საშუალო
+          </button>
+          <div class="dropdown-content" *ngIf="dropdownVisible">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+          </div>
+    
+        </div>
+        <div style="margin-left:16px">
+          <button class="design-button">დიზაინი</button>
+        </div>
+       </div>
+          <div>
+            <p class="dregister-date">22 იანვ, 2022</p>
+          </div>
+        </div>
+
+        
+      <div class="middle-comment-div">
+        <h3>Redberry-ს საიტის ლენდინგის დიზაინი </h3>
+        <p class="comment-p">შექმენი საიტის მთავარი გვერდი, რომელიც მოიცავს მთავარ სექციებს, ნავიგაციას.</p>
+      </div>
+
+
+
+      <div style="width: 320px; display: flex; justify-content: space-between;">
+        <div style="width: 31px; height: 31px;  border-radius: 50%; object-fit: cover;">
+          <img src="../../../assets/Vector.png" alt="">
+        </div>
+        <div >
+          <img src="../../../assets/Vector.png" alt="">
+          <span style="font-family: FiraGO;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          top: 0%;
+          ">8</span>
+        </div>
+      </div>
+      </div>
+      
+      
+    </div>
+
+    <div>
+      <button class="info color4">
+        დასრულებული
+      </button>
+      
+
+      <div class="custom-button buttom-for-finally">
+        <div class="header-cutom">
+       <div class="left-custom">
+        <div class="dropdown">
+          <button class="dropdown-button" (click)="toggleDropdown()" >
+            საშუალო
+          </button>
+          <div class="dropdown-content" *ngIf="dropdownVisible">
+            <a href="#">Option 1</a>
+            <a href="#">Option 2</a>
+            <a href="#">Option 3</a>
+          </div>
+    
+        </div>
+        <div style="margin-left:16px">
+          <button class="design-button">დიზაინი</button>
+        </div>
+       </div>
+          <div>
+            <p class="dregister-date">22 იანვ, 2022</p>
+          </div>
+        </div>
+
+        
+      <div class="middle-comment-div">
+        <h3>Redberry-ს საიტის ლენდინგის დიზაინი </h3>
+        <p class="comment-p">შექმენი საიტის მთავარი გვერდი, რომელიც მოიცავს მთავარ სექციებს, ნავიგაციას.</p>
+      </div>
+
+
+
+      <div style="width: 320px; display: flex; justify-content: space-between;">
+        <div style="width: 31px; height: 31px;  border-radius: 50%; object-fit: cover;">
+          <img src="../../../assets/Vector.png" alt="">
+        </div>
+        <div >
+          <img src="../../../assets/Vector.png" alt="">
+          <span style="font-family: FiraGO;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 100%;
+          letter-spacing: 0%;
+          top: 0%;
+          ">8</span>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    </div>
+  </main>

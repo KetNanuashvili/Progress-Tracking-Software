@@ -1,0 +1,266 @@
+.main-page {
+  padding-left: 118px;
+}
+
+.title {
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #212529;
+  width: 373px;
+  height: 41px;
+
+  margin-bottom: 50px;
+}
+.filter-container {
+  width: 688px;
+  height: 44px;
+  top: 233px;
+  left: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 45px;
+  border-radius: 10px;
+  border: 1px solid #DEE2E6;
+  padding: 5px 10px;
+  background: white;
+}
+
+.buttons {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+.department-button {
+  background-color: white;
+  color: black;
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  width: 119px;
+  height: 19px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+  flex-grow: 0;
+  white-space: nowrap;  /* Prevent text from wrapping */
+  transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transition only for color and transform */
+}
+
+.department-button.active {
+  color: #8338EC; /* Change color when active */
+}
+
+.custom-img {
+  width: 14px;  /* Fixed width for the icon */
+  height: 8px;  /* Fixed height for the icon */
+  margin-left: 5px;
+  transition: transform 0.3s ease; /* Apply transition only for transform */
+}
+
+.active .custom-img {
+  transform: none; /* Prevent image from moving when active */
+}
+
+.active {
+  color: #8338EC; /* Keep the color change but avoid layout shifting */
+}
+.info-from-data{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-right: 118px;
+}
+
+.info {
+  width: 381px;
+  height: 54px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  gap: 10px;
+  border-radius: 10px;
+  background: #F7BC30;  /* ძირითადი ფერი */
+  color: white;  /* ტექსტის ფერი */
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 50px;
+ 
+}
+.color2{
+  background-color: #FB5607;
+
+}
+.color3{
+  background-color: #FF006E;
+}
+.color4{
+  background-color: #3A86FF;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-button {
+  margin-top: 30px;
+  height: 217px;                 /* სიმაღლე */
+  gap: 28px;                     /* ელემენტებს შორის შუალედი */
+  border-radius: 15px;           /* მრგვალი კიდეები */
+  border-width: 1px;             /* საზღვრის სისქე */
+  padding: 20px;                 /* შიდა სივრცე */
+  border: 1px solid #F7BC30;     /* საზღვარი მოცემული ფერით */
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  background-color: white;       /* ფონდის ფერი */
+}
+.buttom-for-progress{
+  border: 1px solid #FB5607; 
+}
+.buttom-for-ready{
+  border: 1px solid   #FF006E;
+}
+.buttom-for-finally{
+  border: 1px solid  #3A86FF;
+}
+
+.custom-button {
+  font-family: 'FiraGO', sans-serif;
+
+  display: flex;
+}
+.header-cutom{
+  display: flex;
+  width: 341px;
+  justify-content: space-between;
+}
+.left-custom{
+  display: flex;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-button {
+  width: 86px;
+  height: 26px;
+  gap: 4px;
+  border-radius: 4px;
+  border-width: 0.5px;
+  padding: 4px;
+  border: 0.5px solid #FFBE0B;
+  background-color: white;
+  color: black;
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  color: #F7BC30;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border: 0.5px solid #FFBE0B;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+}
+.design-button {
+  width: 88px;
+  height: 24px;
+  padding-top: 5px;
+  padding-right: 9px;
+  padding-bottom: 5px;
+  padding-left: 9px;
+  gap: 10px;
+  border-radius: 15px;
+  background-color: #FF66A8;
+  color: white;
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.dregister-date{
+  font-family: FiraGO;
+font-weight: 400;
+font-size: 12px;
+line-height: 100%;
+letter-spacing: 0%;
+color: black
+
+}
+.middle-comment-div{
+  width: 320px;
+}
+h3{
+  font-family: FiraGO;
+font-weight: 500;
+font-size: 15px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #212529;
+
+
+}
+.comment-p{
+  font-family: FiraGO;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #343A40;
+
+}
