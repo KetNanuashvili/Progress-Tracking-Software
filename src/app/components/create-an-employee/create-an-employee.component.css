@@ -1,0 +1,327 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+GO&display=swap');
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+  }
+  
+  /* ქარდის სტილი */
+  .card {
+    gap :45px;
+    width: 913px;
+    height: 766px;
+    background-color: #fff;
+    border-radius: 10px;
+    /* padding: 40px 50px 60px 50px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+ 
+  }
+  .inputs-card{
+
+    width: 813px;
+height: 522px;
+gap: 45px;
+
+  }
+  .close-btn {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #DEE2E6; 
+    border: none;
+    border-radius: 50%; /* მრგვალი ღილაკისთვის */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #495057; /* ტექსტის ფერი */
+    cursor: pointer;
+    position: absolute;
+    top: 45px;
+    right: 45px;
+    transition: background 0.3s ease;
+    color: white;
+    font-size: 30px;
+    
+  }
+  
+  .close-btn:hover {
+    background-color: #CED4DA; 
+  }
+  h1 {
+    font-family: 'FiraGO', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    color: #212529;
+    width: 813;
+    height: 38;    
+    margin-top: 100px;
+  }
+  
+  .custom-input {
+    width: 384px;
+    height: 42px;
+    border: 1px solid #CED4DA; /* საზღვრის ფერი */
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #FFFFFF; /* ფონდის ფერი */
+    box-sizing: border-box; /* რათა padding არ შეიცვალოს ელემენტის ზომა */
+  }
+  
+  .custom-input:focus {
+    border-color: #CED4DA; /* ფოკუსის დროს საზღვრის ფერი */
+    outline: none; /* ამოიღებს ფოკუსის გარშემო წრეს */
+  }
+
+
+  .custom-input-dropdown {
+    width: 384px;
+    height: 42px;
+    border: 1px solid #CED4DA; /* საზღვრის ფერი */
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #FFFFFF; /* ფონდის ფერი */
+    box-sizing: border-box; /* რათა padding არ შეიცვალოს ელემენტის ზომა */
+    padding-right: 30px; /* რომ აიკონი არ იყოს ზედ input-ის ტექსტთან */
+    cursor: pointer; /* თუკი input-ისა და dropdown-ის სტილი გამოიწვევს კლიკების შესაძლებლობას */
+  }
+  
+  .custom-input-dropdown:focus {
+    border-color: #CED4DA; /* ფოკუსის დროს საზღვრის ფერი */
+    outline: none; /* ამოიღებს ფოკუსის გარშემო წრეს */
+  }
+  
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-container svg {
+    position: absolute;
+    right: 10px; /* აიკონის მდებარეობა input-ის ბოლოს */
+    pointer-events: none; /* აიკონი არ უნდა ჩარევდეს კლებასა და სახაზავ გრაფიკასთან */
+    color: #6C757D; /* აიკონის ფერი */
+  }
+  
+  .dropdown-options {
+    display: none;
+    position: absolute;
+    top: 45px; /* input-ის ქვემოთ */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #CED4DA;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+  
+  .dropdown-option {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .dropdown-option:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .input-container.open .dropdown-options {
+    display: block;
+  }
+  
+
+
+  
+  h6{
+    font-family: FiraGO;
+font-weight: 500;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color:#343A40;
+margin: 0;
+margin-bottom: 3px;
+  }
+
+  .validation-divs {
+    margin-top: 2px;
+    display: flex;
+    align-items: center; /* centers the icon and text vertically */
+    margin-bottom: 0; /* Remove any margin at the bottom */
+    padding: 0; /* Remove any padding inside the div */
+  }
+  
+  .validation-divs svg {
+    color: #6C757D; /* Icon color */
+    width: 12px; /* Adjust icon size */
+    height: 12px; /* Adjust icon size */
+    margin-right: 5px; /* Space between icon and text */
+  }
+  
+  .validation-divs p {
+
+    color: #6C757D;
+    font-family: 'Fira GO', sans-serif;
+    font-weight: 350;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin: 0; /* Remove margin from p */
+  }
+.top-inputs{
+  display: flex;
+  justify-content: space-between;
+}
+.form-label{
+  font-family: FiraGO;
+font-weight: 500;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #343A40;
+}
+  /* img */
+  .upload-box {
+    border: 2px dashed #CED4DA;  
+    width: 813px;  /* Set width */
+    height: 120px;  /* Set height */
+    border-radius: 8px;  /* Rounded corners */
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;
+  }
+  
+  .upload-box.upload-box2 {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    align-items: center;
+  }
+  
+  .upload-box.upload-box2 img {
+    width: 88px;
+    height: 88px;
+    top: 16px;
+    left: 363px;
+    border-radius: 50%; /* Circular image */
+    position: absolute;
+  }
+  
+  .upload-box.upload-box2 .upload-icon-style {
+    position: absolute;
+    top: 83px;   /* Adjusted top position */
+    left: 430px; /* Adjusted left position */
+    width: 24px;
+    height: 24px;
+    border-width: 0.3px;
+    border-radius: 30px;
+    border: 0.3px solid #6C757D; /* Border around the trash icon */
+    background-color: white; /* To ensure visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .upload-box.upload-box2 .upload-icon-style svg {
+    width: 14px;  /* Adjusted icon width */
+    height: 14px; /* Adjusted icon height */
+    color: #6C757D;  /* Icon color */
+  }
+  
+  .upload-box-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+  }
+  
+  .upload-box input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .container{
+    margin-top:60px;
+  }
+
+  .cancel-button {
+    border: 1px solid #8338EC; /* Border color */
+    width: 102px; /* Width of the button */
+    height: 42px; /* Height of the button */
+    border-width: 1px; /* Border thickness */
+    border-radius: 5px; /* Rounded corners */
+    padding-top: 10px; /* Top padding */
+    padding-right: 16px; /* Right padding */
+    padding-bottom: 10px; /* Bottom padding */
+    padding-left: 16px; /* Left padding */
+    gap: 2px; /* Space between button content */
+    font-family: 'FiraGO', sans-serif; /* Font family */
+    font-weight: 400; /* Normal font weight */
+    font-size: 16px; /* Font size */
+    line-height: 100%; /* Line height */
+    letter-spacing: 0%; /* Letter spacing */
+    text-align: center; /* Center the text */
+    background-color: transparent; /* Transparent background */
+    color: #8338EC; /* Text color */
+    cursor: pointer; /* Show pointer cursor on hover */
+    margin-right: 30px;
+  }
+  
+  .cancel-button:hover {
+    background-color: #f0f0f0; /* Light background color on hover */
+  }
+  
+
+  .add-employee-button {
+    background: #8338EC; /* Background color */
+    width: 263px; /* Width of the button */
+    height: 42px; /* Height of the button */
+    border-radius: 5px; /* Rounded corners */
+    padding-top: 10px; /* Top padding */
+    padding-right: 20px; /* Right padding */
+    padding-bottom: 10px; /* Bottom padding */
+    padding-left: 20px; /* Left padding */
+    gap: 4px; /* Space between button content */
+    font-family: 'FiraGO', sans-serif; /* Font family */
+    font-weight: 400; /* Normal font weight */
+    font-size: 18px; /* Font size */
+    line-height: 100%; /* Line height */
+    letter-spacing: 0%; /* Letter spacing */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    cursor: pointer; /* Show pointer cursor on hover */
+  
+  }
+  
+  .add-employee-button:hover {
+    background-color:#B588F4;
+    ; /* Darken background color on hover */
+  }
+  
