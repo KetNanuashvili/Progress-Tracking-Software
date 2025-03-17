@@ -1,6 +1,6 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+GO&display=swap');
+
 h1{
     font-family: FiraGO;
 font-weight: 600;
@@ -183,4 +183,9 @@ border: 1px solid #DEE2E6;
     margin-bottom: 100px;
    
   }
-  
+  .priority-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+ 
