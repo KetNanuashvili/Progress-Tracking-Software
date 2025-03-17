@@ -1,0 +1,186 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+GO&display=swap');
+h1{
+    font-family: FiraGO;
+font-weight: 600;
+font-size: 34px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #212529;
+margin-left: 118px;
+
+}
+.form-div{
+top: 206px;
+margin-left: 118px;
+margin-right: 118px;
+border-radius: 4px;
+border-width: 0.3px;
+border: 0.3px solid #DDD2FF;
+padding:65px;
+}
+h6{
+    font-size: inherit;  /* ამოიღებს ავტომატურ ზომას */
+    margin: 0;  /* ამოიღებს მარგინს */
+    padding: 0; 
+    margin-bottom: 4px;
+    color: #343A40;
+    font-family: FiraGO;
+font-weight: 400;
+font-size: 16px;
+line-height: 100%;
+letter-spacing: 0%;
+
+
+
+}
+.custom-input{
+    width: 550px;
+height: 45px;
+border-radius: 5px;
+border-width: 1px;
+gap: 10px;
+
+border: 1px solid #DEE2E6;
+}
+.custom-input:focus{
+    border: 1px solid #DEE2E6;
+    outline: none; 
+}
+.validation-divs span {
+    font-size: 10px;
+    color: #6C757D; /* აიკონის ფერი */
+  }
+  
+
+  .custom-select {
+    width: 550px;
+    height: 45px;
+    border-radius: 5px;
+    border-width: 1px;
+    border: 1px solid #DEE2E6;
+    padding: 10px;
+    background-color: white;
+    font-size: 16px;
+    color: #495057;
+    cursor: pointer;
+}
+
+/* ფოკუსის სტილი */
+.custom-select:focus {
+    border: 1px solid #DEE2E6;
+    outline: none;
+}
+.validation-divs span {
+    font-size: 10px;
+    color: #6C757D;
+}
+.top{
+   margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  
+}
+.middle{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.bottom{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+ 
+}
+.custom-textarea{
+    width: 550px;
+height: 133px;
+border-radius: 5px;
+border-width: 1px;
+gap: 10px;
+outline: none;
+animation: none; 
+transform: none;
+border: 1px solid #DEE2E6;
+
+}
+.custom-textarea:focus{
+    border: 1px solid #DEE2E6;
+    outline: none;
+}
+.custom-select-small{
+    width: 259px;
+    height: 46px;
+    border-radius: 5px;
+    border-width: 1px;
+    gap: 6px;
+    padding: 14px;
+    border: 1px solid #DEE2E6;
+
+}
+.custom-select-small:focus{
+    outline: none;
+    border: 1px solid #DEE2E6;
+}
+.left-cont{
+    width: 550px;
+    display: flex;
+    justify-content: space-between;
+}
+.date-input {
+    width: 318px;
+
+    border-radius: 5px;
+    border: 1px solid #DEE2E6;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.date-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+.right-cont{
+    width: 550px;
+    margin-right: 300px;
+  
+}
+.custom-button-submit {
+    width: 208px;
+    height: 42px;
+    border-radius: 5px;
+    gap: 4px;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    background: #8338EC;
+    color: #FFFFFF;
+    font-family: 'FiraGO', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    border: none;
+    cursor: pointer;
+    margin-right:  300px;
+  }
+  
+  .custom-button-submit:hover {
+    background-color:  #B588F4;
+    ; /* Optional: Hover effect */
+  }
+  .submit-button{
+    margin-top: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 100px;
+   
+  }
+  

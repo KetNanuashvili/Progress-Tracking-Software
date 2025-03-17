@@ -1,11 +1,11 @@
 <header class="header">
     <div class="logo-div">
-        <h1 class="logo">Momentum</h1>
+        <h1 class="logo" [routerLink]="'/main-page'">Momentum</h1>
         <img src="../../../assets/Hourglass@3x.png" alt="">
     </div>
     <div class="button-container">
         <button class="btn-outline" (click)="openEmployee()">თანამშრომლის შექმნა</button>
-        <button class="btn-filled">+ შექმენი ახალი დავალება </button>
+        <button class="btn-filled" [routerLink]="'/create-assignment'" >+ შექმენი ახალი დავალება </button>
     </div>
 </header>
 
@@ -14,3 +14,6 @@
     *ngIf="openEmployeeCard" 
     (closeCard)="closeEmployeeCard()">
 </app-create-an-employee>
+
+<!-- დავალების ქარდი -->
+
