@@ -4,10 +4,11 @@ import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { DepartmentsService } from '../../services/departaments/departaments.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CreateEmployeeService } from '../../services/createEmployee/create-employee.service';
+import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-create-an-employee',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule, RouterModule],
   templateUrl: './create-an-employee.component.html',
   styleUrl: './create-an-employee.component.css'
 })
@@ -18,8 +19,10 @@ export class CreateAnEmployeeComponent {
   employeeForm: FormGroup;
   departments: any[] = [];
   imageUrl: string | ArrayBuffer | null = null;
+  imageError: string | null = null;
 
   constructor(
+    private router: Router,
     private departmentsService: DepartmentsService,
     private fb: FormBuilder,
     private createEmployeeService: CreateEmployeeService
@@ -51,13 +54,35 @@ export class CreateAnEmployeeComponent {
   }
 
   // Handle file selection
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input?.files?.[0]) {
-      const file = input.files[0]; // ფაილი პირდაპირ
-      this.employeeForm.patchValue({ avatar: file }); // ატვირთვისთვის ემატება ფაილი
+// Handle file selection
+onFileSelected(event: Event): void {
+  const input = event.target as HTMLInputElement;
+  if (input?.files?.[0]) {
+    const file = input.files[0];
+
+    // Size validation (600KB = 600 * 1024 bytes)
+    const maxSize = 600 * 1024; // 600KB
+    if (file.size > maxSize) {
+      // Show validation error
+      this.imageError = 'ფოტოს ზომა აღემატება 600KB-ს';
+      this.imageUrl = null; // Reset image preview
+      this.employeeForm.patchValue({ avatar: null }); // Clear form value
+      return;
     }
+
+    // If size is valid, read the file and set the preview
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imageUrl = reader.result; // Update imageUrl with base64 string
+      this.imageError = null; // Clear previous error (if any)
+    };
+    reader.readAsDataURL(file);
+
+    // Update the form value
+    this.employeeForm.patchValue({ avatar: file });
   }
+}
+
   
   
   
@@ -81,17 +106,34 @@ export class CreateAnEmployeeComponent {
       this.createEmployeeService.createEmployee(formData).subscribe(
         (response: any) => {
           console.log('Employee created successfully:', response);
+          alert('თანამშრომელი წარმატებით დაემატა!');
+          this.router.navigate(['/main-page']).then(() => {
+            console.log('ნავიგაცია შესრულდა');
+            this.closeCard.emit(); // Emit the event to close the card
+          });
         },
         (error: any) => {
           console.error('Error response:', error.error);
+          alert('დაფიქსირდა შეცდომა თანამშრომლის დამატებისას. სცადეთ თავიდან.');
         }
       );
     } else {
-      console.log('Form is invalid');
+      {
+   Object.keys(this.employeeForm.controls).forEach(field => {
+      const control = this.employeeForm.get(field);
+      control?.markAsTouched(); // მონიშნოს ყველა ველი როგორც "ტუჩედ"
+     
+    });
+      }
     }
   }
   
   
+
+  
+  onInputChange(): void {
+    // წვდომა დინამიკაზე ტექსტების ფერის ცვლილებისთვის.
+  }
   
   
 }

@@ -324,4 +324,40 @@ color: #343A40;
     background-color:#B588F4;
     ; /* Darken background color on hover */
   }
+
+
+
+
+  .validation-divs {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .validation-divs p {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #6c757d; /* default color */
+  }
+  
+  .validation-divs.valid p {
+    color: #28a745; /* მწვანე ფერი სწორი მონაცემისთვის */
+  }
+  
+  .validation-divs.valid svg {
+    color: #28a745; /* მწვანე ფერი აიქონისთვის სწორი მონაცემისას */
+  }
+  
+  .validation-divs.invalid p {
+    color: #dc3545; /* წითელი ფერი არასწორი ან ცარიელი მონაცემისათვის */
+  }
+  
+  .validation-divs.invalid svg {
+    color: #dc3545; /* წითელი ფერი აიქონისთვის */
+  }
+  .validation-error p {
+    color: #dc3545; /* წითელი ტექსტი შეცდომისთვის */
+    font-size: 14px;
+    margin-top: 5px;
+  }
   
