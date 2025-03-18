@@ -7,12 +7,22 @@
              [ngClass]="{'custom-img': activeButton === 'department'}" alt="">
       </div>
     
+      <div *ngIf="showDepartments">
+        <app-departments></app-departments> <!-- This will now work -->
+      </div>
+
       <div class="buttons" (click)="changeStyle('priority')">
         <button class="department-button" [ngClass]="{'active': activeButton === 'priority'}">პრიორიტეტი</button>
         <img [src]="activeButton === 'priority' ? '../../../assets/Shape.png' : '../../../assets/blackIcon.png'" 
              [ngClass]="{'custom-img': activeButton === 'priority'}" alt="">
       </div>
     
+
+      <div *ngIf="showPriorities">
+        <app-priorities-filter></app-priorities-filter> <!-- This will now work -->
+      </div>
+
+
       <div class="buttons" (click)="changeStyle('employee')">
         <button class="department-button" [ngClass]="{'active': activeButton === 'employee'}">თანამშრომელი</button>
         <img [src]="activeButton === 'employee' ? '../../../assets/Shape.png' : '../../../assets/blackIcon.png'" 
@@ -21,8 +31,93 @@
     </div>
 
 
-
+    <!-- <option *ngFor="let status of statuses" [value]="status.id">{{ status.name }}</option> -->
     <div class="info-from-data">
+      <ng-container *ngFor="let status of statusesWithItems">
+        <div>
+          <button
+            class="info"
+            [ngStyle]="{
+              'background-color': getStatusColor(status.name),
+              color: 'white'
+            }"
+          >
+            {{ status.name }}
+          </button>
+          <ng-container *ngFor="let item of status.items">
+            <div
+              class="custom-button"
+              [ngStyle]="{ 'border': '1px solid ' + getStatusColor(status.name) }"
+            >
+              <div class="header-cutom">
+                <div class="left-custom">
+                  <div class="dropdown">
+                    <button
+                    class="dropdown-button"
+                    (click)="toggleDropdown()"
+                    [ngStyle]="{
+                      'border': '1px solid ' + getPriorityColor(item.priority.id),
+                      'color': getPriorityColor(item.priority.id)
+                    }"
+                  >
+                    <img
+                      [src]="item.priority.icon"
+                      alt="{{ item.priority.name }}"
+                      class="priority-icon"
+                    />
+                    {{ item.priority.name }}
+                  </button>
+                  
+                  </div>
+                  <div style="margin-left: 16px">
+                    <div
+                      class="design-button"
+                      [ngStyle]="{
+                        'background-color': getDepartmentColor(item.department.id),
+                        'color': 'white',
+                      }"
+                    >
+                      {{ item.department.name | slice:0:12 }}
+                    </div>
+                  </div>
+                  
+                </div>
+                <div>
+                  <p class="dregister-date" style="width: 100px;font-size:12; color:#212529">{{ item.due_date | date: 'dd MMM, yyyy' }}</p>
+                </div>
+              </div>
+              <div class="middle-comment-div">
+                <h3>{{ item.name }}</h3>
+                <p class="comment-p">{{ item.description }}</p>
+              </div>
+
+              <div style="width: 320px; display: flex; justify-content: space-between;">
+                <div >
+                  <img style="width: 31px; height: 31px;  border-radius: 50%; object-fit: cover;" [src]="item.employee.avatar" alt="Employee Avatar" />
+                </div>
+                <div >
+                  <img src="../../../assets/Vector.png" alt="">
+                  <span style="font-family: FiraGO;
+                  font-weight: 400;
+                  font-size: 14px;
+                  line-height: 100%;
+                  letter-spacing: 0%;
+                  top: 0%;
+                  ">{{item.total_comments}}</span>
+                </div>
+              </div>
+
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+    
+    
+    
+    
+    
+    <!-- <div class="info-from-data" >
       
 
     <div >
@@ -249,7 +344,7 @@
       </div>
 
     </div>
-    </div>
+    </div> -->
   </main>
 
 

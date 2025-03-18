@@ -1,0 +1,17 @@
+<div class="card-container">
+    <div class="card">
+<div *ngFor="let priority of priorities">
+    <label class="checkbox-label" [style.border-left]="getPriorityColor(priority.id)">
+      <input type="checkbox"
+             [value]="priority.id"
+             (change)="onPrioritySelect(priority.id)"
+             [ngStyle]="{'border-color': getPriorityColor(priority.id)}"
+             class="department-checkbox">
+      <span class="department-name">{{ priority.name }}</span>
+    </label>
+  </div>
+  <div style="width: 628px; display: flex; justify-content: right;">
+    <button class="submit-button">არჩევა</button>
+  </div>
+    </div>
+</div>

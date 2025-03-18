@@ -1,109 +1,86 @@
 <div class="overlay">
-    <div class="card">
-        <button class="close-btn" (click)="close()">
-            <i class="fas fa-times"></i>
-          </button>
-          <h1>თანამშრომლის დამატება</h1>
-          <div class="inputs-card">
-            <div class="top-inputs">
-              <div>
-                <h6>სახელი*</h6>
-                <div>
-                  <input type="text" class="custom-input" />
-                  <div class="validation-divs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                      <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-                    </svg>
-                    <p>მინიმუმ 2 სიმბოლო</p>
-                  </div>
-                  
-  
-                  <div class="validation-divs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                      <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-                    </svg>
-                    <p>მაქსიმუმ 255 სიმბოლო</p>
-                  </div>
-                </div>
+  <div class="card">
+    <button class="close-btn" (click)="close()">
+      <i class="fas fa-times"></i>
+    </button>
+    <h1>თანამშრომლის დამატება</h1>
+    <div class="inputs-card">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="top-inputs">
+          <div>
+            <h6>სახელი*</h6>
+            <div>
+              <input
+                type="text"
+                class="custom-input"
+                formControlName="name"
+              />
+              <div class="validation-divs" *ngIf="employeeForm.get('name')?.invalid && employeeForm.get('name')?.touched">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                </svg>
+                <p *ngIf="employeeForm.get('name')?.hasError('required')">სახელი აუცილებელია</p>
+                <p *ngIf="employeeForm.get('name')?.hasError('minlength')">მინიმუმ 2 სიმბოლო</p>
+                <p *ngIf="employeeForm.get('name')?.hasError('maxlength')">მაქსიმუმ 255 სიმბოლო</p>
               </div>
-  
-  
-  
-              <div>
-                <h6>გვარი*</h6>
-                <div>
-                  <input type="text" class="custom-input" />
-                  <div class="validation-divs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                      <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-                    </svg>
-                    <p>მინიმუმ 2 სიმბოლო</p>
-                  </div>
-                  
-  
-                  <div class="validation-divs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                      <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
-                    </svg>
-                    <p>მაქსიმუმ 255 სიმბოლო</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="container mt-5">
-              <label for="imageUpload" class="form-label">ავატარი*</label>
-              <div class="upload-box" *ngIf="!imageUrl">
-                <input type="file" (change)="onFileSelected($event)" id="imageUpload" accept="image/*">
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-                </svg> -->
-                <div class="upload-box-img">
-                  <img src="../../../assets/gallery-export.png" alt="">
-                </div>
-                <div style="margin-top: 50px; color:#343A40; font-size: 14px;"> <p style="margin-top: 5px;">ატვირთე ფოტო</p></div>
-               
-              </div>
-            
-              <div class="upload-box upload-box2" *ngIf="imageUrl">
-                <img [src]="imageUrl" alt="Uploaded Image" class="uploaded-image">
-                <div class="upload-icon-style" (click)="removeImage()">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
-                    <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
-            
-
-            <div style="margin-top: 50px;">
-              <h6>დეპარტამენტი*</h6>
-              <div class="input-container">
-                <select class="form-select custom-select custom-input-dropdown" id="inputGroupSelect03" aria-label="Example select with button addon">
-                  <option selected></option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
-                </select>
-              </div>
-              
-
-            </div>
-         
-
-
-
-            <div style="display: flex; margin-top:40px; justify-content: right;">
-             <div>
-              <button class="cancel-button">გაუქმება</button>
-
-             </div>
-             <div >
-              <button class="add-employee-button">დამატე თანამშრომელი</button>
-
-             </div>
             </div>
           </div>
+
+          <div>
+            <h6>გვარი*</h6>
+            <div>
+              <input
+                type="text"
+                class="custom-input"
+                formControlName="surname"
+              />
+              <div class="validation-divs" *ngIf="employeeForm.get('surname')?.invalid && employeeForm.get('surname')?.touched">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                  <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/>
+                </svg>
+                <p *ngIf="employeeForm.get('surname')?.hasError('required')">გვარი აუცილებელია</p>
+                <p *ngIf="employeeForm.get('surname')?.hasError('minlength')">მინიმუმ 2 სიმბოლო</p>
+                <p *ngIf="employeeForm.get('surname')?.hasError('maxlength')">მაქსიმუმ 255 სიმბოლო</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Avatar Upload -->
+        <div class="container mt-5">
+          <label for="imageUpload" class="form-label">ავატარი*</label>
+          <div class="upload-box" *ngIf="!imageUrl">
+            <input type="file" (change)="onFileSelected($event)" id="imageUpload" accept="image/*">
+            <div class="upload-box-img">
+              <img src="../../../assets/gallery-export.png" alt="Upload Avatar">
+            </div>
+            <p>ატვირთე ფოტო</p>
+          </div>
+
+          <div class="upload-box upload-box2" *ngIf="imageUrl">
+            <img [src]="imageUrl" alt="Uploaded Image" class="uploaded-image">
+            <div class="upload-icon-style" (click)="removeImage()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Department Selection -->
+        <div>
+          <h6>დეპარტამენტი*</h6>
+          <div class="custom-select">
+            <select formControlName="department_id">
+              <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button class="submit-btn" type="submit">დამატება</button>
+        </div>
+      </form>
     </div>
   </div>
-  
+</div>

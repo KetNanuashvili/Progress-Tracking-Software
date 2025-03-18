@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DepartmentsService {
   private apiUrl = 'https://momentum.redberryinternship.ge/api/departments';
 

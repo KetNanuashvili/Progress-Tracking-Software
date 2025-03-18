@@ -1,0 +1,92 @@
+/* Card container styling */
+.card-container {
+    display: flex;
+    justify-content: center; /* Horizontally center the card */
+    align-items: center;     /* Vertically center the card */
+    position: relative; /* Keeps .card positioned relative to the container */
+    height: 100vh; /* Ensure the container takes the full viewport height */
+    overflow: hidden; /* Hide anything outside the container */
+    left: -424px;
+    top: 154px;
+}
+
+/* Card styling */
+.card {
+    border: 0.5px solid #8338EC;
+    position: relative; /* Position the card normally inside the container */
+    border-radius: 10px;
+    padding-top: 40px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 60px;
+    background-color: white;
+    z-index: 100; /* Ensure the card is on top of the overlay */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow for better visibility */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    max-width: 800px; /* Optional: limit card width */
+    min-width: 400px; /* Optional: set minimum width */
+}
+
+
+
+/* Label with department name */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Adds space between each department */
+    cursor: pointer;
+}
+
+/* Department checkbox styles */
+.department-checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border-width: 1.5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Checked state of checkbox */
+.department-checkbox:checked {
+    background-color: currentColor;
+    border-color: currentColor;
+    color: white; /* Change text color inside the checkbox when checked */
+}
+
+/* Text style for department name */
+.department-name {
+    font-family: 'FiraGO', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+/* Optional: Hover effect for checkboxes */
+.department-checkbox:hover {
+    opacity: 0.8;
+}
+
+/* Submit button styling */
+.submit-button {
+    padding: 8px 20px;
+    background: #8338EC;
+    width: 155px;
+    height: 35px;
+    border-radius: 20px;
+    color: white;
+    font-family: 'FiraGO', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Hover effect for submit button */
+.submit-button:hover {
+    background: #6b1c9a; /* Darker shade of the original color for hover effect */
+}
