@@ -1,82 +1,91 @@
 <form [formGroup]="assignmentForm" (ngSubmit)="onSubmit()">
   <h1>შექმენი ახალი დავალება</h1>
   <div class="form-div">
-    <div class="top">
-      <!-- Title -->
-      <div>
-        <h6>სათაური*</h6>
-        <input type="text" class="custom-input" formControlName="title" />
-        <div class="validation-divs" *ngIf="assignmentForm.get('title')?.invalid && assignmentForm.get('title')?.touched">
-          <span *ngIf="assignmentForm.get('title')?.errors?.['required']">სათაური სავალდებულოა</span>
-          <span *ngIf="assignmentForm.get('title')?.errors?.['minlength']">მინიმუმ 3 სიმბოლო</span>
-          <span *ngIf="assignmentForm.get('title')?.errors?.['maxlength']">მაქსიმუმ 255 სიმბოლო</span>
-        </div>
-      </div>
-
-      <!-- Department -->
-      <div>
-        <h6>დეპარტამენტი*</h6>
-        <select class="form-select custom-select" formControlName="department" (change)="onDepartmentChange($event)">
-          <option value="" disabled selected>აირჩიე დეპარტამენტი</option>
-          <option *ngFor="let department of departments" [value]="department.id">
-            {{ department.name }}
-          </option>
-        </select>
+    <!-- Name -->
+    <div>
+      <h6>სახელი*</h6>
+      <input type="text" formControlName="name" class="custom-input" />
+      <div class="validation-divs" *ngIf="assignmentForm.get('name')?.invalid && assignmentForm.get('name')?.touched">
+        <span *ngIf="assignmentForm.get('name')?.errors?.['required']">სახელი სავალდებულოა</span>
+        <span *ngIf="assignmentForm.get('name')?.errors?.['minlength']">მინიმუმ 3 სიმბოლო</span>
+        <span *ngIf="assignmentForm.get('name')?.errors?.['maxlength']">მაქსიმუმ 255 სიმბოლო</span>
       </div>
     </div>
 
-    <div class="middle">
-      <!-- Description -->
-      <div>
-        <h6>აღწერა</h6>
-        <textarea class="custom-textarea" formControlName="description"></textarea>
-        <div class="validation-divs" *ngIf="assignmentForm.get('description')?.invalid && assignmentForm.get('description')?.touched">
-          <span *ngIf="assignmentForm.get('description')?.errors?.['minWords']">მინიმუმ 4 სიტყვა</span>
-          <span *ngIf="assignmentForm.get('description')?.errors?.['maxlength']">მაქსიმუმ 255 სიმბოლო</span>
-        </div>
-      </div>
-
-      <!-- Responsible Employee -->
-      <div *ngIf="selectedDepartment && employees.length">
-        <h6>პასუხისმგებელი თანამშრომელი*</h6>
-        <select class="form-select custom-select" formControlName="responsibleEmployee">
-          <option value="" disabled selected>აირჩიე თანამშრომელი</option>
-          <option *ngFor="let employee of employees" [value]="employee.id">
-            {{ employee.name }} {{ employee.surname }}
-          </option>
-        </select>
+    <!-- Description -->
+    <div>
+      <h6>აღწერა*</h6>
+      <textarea formControlName="description" class="custom-textarea"></textarea>
+      <div class="validation-divs" *ngIf="assignmentForm.get('description')?.invalid && assignmentForm.get('description')?.touched">
+        <span>აღწერა სავალდებულოა</span>
       </div>
     </div>
 
-    <div class="bottom">
-      <div class="left-cont">
-        <!-- Priority -->
-        <h6>პრიორიტეტი*</h6>
-        <select class="form-select custom-select-small" formControlName="priority">
-          <option value="" disabled selected>აირჩიე პრიორიტეტი</option>
-          <option *ngFor="let priority of priorities" [value]="priority.id">
-            {{ priority.name }}
-          </option>
-        </select>
-
-        <!-- Status -->
-        <h6>სტატუსი*</h6>
-        <select class="form-select custom-select-small" formControlName="status">
-          <option value="" disabled selected>აირჩიეთ სტატუსი</option>
-          <option *ngFor="let status of statuses" [value]="status.id">{{ status.name }}</option>
-        </select>
+    <!-- Due Date -->
+    <div>
+      <h6>დედლაინი*</h6>
+      <input type="date" formControlName="due_date" [min]="tomorrowDate" class="custom-input" />
+      <div class="validation-divs" *ngIf="assignmentForm.get('due_date')?.invalid && assignmentForm.get('due_date')?.touched">
+        <span>დედლაინი სავალდებულოა</span>
       </div>
+    </div>
 
-      <!-- Deadline -->
-      <div class="right-cont">
-        <h6>დედლაინი</h6>
-        <input type="date" formControlName="deadline" [min]="tomorrowDate" />
+    <!-- Department -->
+    <div>
+      <h6>დეპარტამენტი*</h6>
+      <select class="form-select" (change)="onDepartmentChange($event)">
+        <option value="" disabled selected>აირჩიე დეპარტამენტი</option>
+        <option *ngFor="let department of departments" [value]="department.id">
+          {{ department.name }}
+        </option>
+      </select>
+      
+      <div class="validation-divs" *ngIf="assignmentForm.get('department')?.invalid && assignmentForm.get('department')?.touched">
+        <span>დეპარტამენტის ველი სავალდებულოა</span>
+      </div>
+    </div>
+
+    <!-- Employee -->
+    <div *ngIf="employees.length > 0">
+      <h6>თანამშრომელი*</h6>
+      <select class="form-select" formControlName="employee_id">
+        <option value="" disabled selected>აირჩიე თანამშრომელი</option>
+        <option *ngFor="let employee of employees" [value]="employee.id">
+          {{ employee.name }} {{ employee.surname }}
+        </option>
+      </select>
+      <div class="validation-divs" *ngIf="assignmentForm.get('employee_id')?.invalid && assignmentForm.get('employee_id')?.touched">
+        <span>თანამშრომლის ველი სავალდებულოა</span>
+      </div>
+    </div>
+
+    <!-- Priority -->
+    <div>
+      <h6>პრიორიტეტი*</h6>
+      <select formControlName="priority_id" class="form-select">
+        <option value="" disabled selected>აირჩიე პრიორიტეტი</option>
+        <option *ngFor="let priority of priorities" [value]="priority.id">{{ priority.name }}</option>
+      </select>
+      <div class="validation-divs" *ngIf="assignmentForm.get('priority_id')?.invalid && assignmentForm.get('priority_id')?.touched">
+        <span>პრიორიტეტი სავალდებულოა</span>
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div>
+      <h6>სტატუსი*</h6>
+      <select formControlName="status_id" class="form-select">
+        <option value="" disabled selected>აირჩიე სტატუსი</option>
+        <option *ngFor="let status of statuses" [value]="status.id">{{ status.name }}</option>
+      </select>
+      <div class="validation-divs" *ngIf="assignmentForm.get('status_id')?.invalid && assignmentForm.get('status_id')?.touched">
+        <span>სტატუსის ველი სავალდებულოა</span>
       </div>
     </div>
 
     <!-- Submit Button -->
     <div class="submit-button">
-      <button type="submit" class="custom-button-submit" [disabled]="assignmentForm.invalid">დავალების შექმნა</button>
+      <button type="submit" [disabled]="assignmentForm.invalid" class="custom-button-submit">დავალების შექმნა</button>
     </div>
   </div>
 </form>
