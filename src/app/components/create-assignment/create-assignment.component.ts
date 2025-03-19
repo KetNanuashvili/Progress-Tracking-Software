@@ -6,7 +6,7 @@ import { DepartmentsService } from '../../services/departaments/departaments.ser
 import { CreateTasksService } from '../../services/createTasks/create-tasks.service';
 import { EmployeesService } from '../../services/emploesss/employees.service';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -22,6 +22,8 @@ export class CreateAssignmentComponent implements OnInit {
   departments: any[] = [];
   employees: any[] = [];
   tomorrowDate: string;
+ 
+  closeCard: any;
 
   constructor(
     private fb: FormBuilder,
@@ -29,19 +31,23 @@ export class CreateAssignmentComponent implements OnInit {
     private prioritatesService: PrioritatesService,
     private departmentsService: DepartmentsService,
     private createTasksService: CreateTasksService,
-    private employeesService: EmployeesService
+    private employeesService: EmployeesService,
+    private router: Router 
   ) {
     this.tomorrowDate = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split('T')[0];
     this.assignmentForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]],
-      description: ['', [Validators.required, Validators.maxLength(255)]],
+      description: ['', [this.optionalDescriptionValidator(4), Validators.maxLength(255)]],
       due_date: [this.tomorrowDate, Validators.required],
       status_id: ['', Validators.required],
       employee_id: ['', Validators.required],
       priority_id: ['', Validators.required]
     });
     
-    
+    this.assignmentForm.statusChanges.subscribe(() => {
+      // ვალიდაციის გამოკითხვა ხდება რეალურ დროში
+      console.log('Form Status:', this.assignmentForm.status);
+    });
     
   }
 
@@ -83,6 +89,18 @@ export class CreateAssignmentComponent implements OnInit {
     }
   }
   
+  optionalDescriptionValidator(minWords: number) {
+    return (control: AbstractControl) => {
+      if (!control.value || control.value.trim() === '') {
+        // თუ ველი ცარიელია, ვალიდაციის წარუმატებლობა არ მოხდება
+        return null; 
+      }
+  
+      // ტექსტის შემთხვევაში ამოწმებს სიტყვების რაოდენობას
+      const wordCount = control.value.trim().split(/\s+/).length;
+      return wordCount >= minWords ? null : { minWords: true }; 
+    };
+  }
   
   
   
@@ -93,16 +111,19 @@ export class CreateAssignmentComponent implements OnInit {
       return control.value.trim().split(/\s+/).length >= minWords ? null : { minWords: true };
     };
   }
-
   onSubmit(): void {
     if (this.assignmentForm.valid) {
-      const taskData = this.assignmentForm.value; // პირდაპირი შესაბამისობა
-      console.log('Task Data to Submit:', taskData);
+      const taskData = this.assignmentForm.value;
   
       this.createTasksService.createTask(taskData).subscribe({
         next: () => {
           alert('დავალება წარმატებით დაემატა!');
-          this.assignmentForm.reset();
+          localStorage.removeItem('assignmentForm'); // ინფორმაცია წაიშლება მხოლოდ წარმატებულ შემთხვევაში
+          this.assignmentForm.reset(); // ფორმის გასუფთავება
+          this.router.navigate(['/main-page']).then(() => {
+            console.log('ნავიგაცია შესრულდა');
+            
+          });
         },
         error: (err) => {
           console.error('შეცდომა:', err.error);
@@ -113,6 +134,7 @@ export class CreateAssignmentComponent implements OnInit {
       alert('გთხოვ, სწორად შეავსე ყველა სავალდებულო ველი!');
     }
   }
+  
   
   
 }

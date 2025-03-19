@@ -1,191 +1,172 @@
-
-
-
-h1{
-    font-family: FiraGO;
-font-weight: 600;
-font-size: 34px;
-line-height: 100%;
-letter-spacing: 0%;
-color: #212529;
-margin-left: 118px;
-
+h1 {
+    font-family: 'FiraGO', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 100%;
+    color: #212529;
+    margin-left: 118px;
 }
-.form-div{
-top: 206px;
-margin-left: 118px;
-margin-right: 118px;
-border-radius: 4px;
-border-width: 0.3px;
-border: 0.3px solid #DDD2FF;
-padding:65px;
+
+.form-div {
+    margin: 50px 118px;
+    padding: 65px;
+    border-radius: 4px;
+    border: 0.3px solid #DDD2FF;
+    background-color: #FFF;
 }
-h6{
-    font-size: inherit;  /* ამოიღებს ავტომატურ ზომას */
-    margin: 0;  /* ამოიღებს მარგინს */
-    padding: 0; 
-    margin-bottom: 4px;
+
+h6 {
+    font-family: 'FiraGO', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     color: #343A40;
-    font-family: FiraGO;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-
-
-
+    margin-bottom: 4px;
 }
-.custom-input{
+
+.custom-input, .custom-textarea, .form-select {
     width: 550px;
-height: 45px;
-border-radius: 5px;
-border-width: 1px;
-gap: 10px;
-
-border: 1px solid #DEE2E6;
-}
-.custom-input:focus{
-    border: 1px solid #DEE2E6;
-    outline: none; 
-}
-.validation-divs span {
-    font-size: 10px;
-    color: #6C757D; /* აიკონის ფერი */
-  }
-  
-
-  .custom-select {
-    width: 550px;
-    height: 45px;
     border-radius: 5px;
-    border-width: 1px;
     border: 1px solid #DEE2E6;
     padding: 10px;
-    background-color: white;
-    font-size: 16px;
+    font-family: 'FiraGO', sans-serif;
+    font-size: 14px;
     color: #495057;
-    cursor: pointer;
-}
-
-/* ფოკუსის სტილი */
-.custom-select:focus {
-    border: 1px solid #DEE2E6;
     outline: none;
 }
-.validation-divs span {
-    font-size: 10px;
-    color: #6C757D;
-}
-.top{
-   margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-  
-}
-.middle{
-    margin-top: 80px;
-    display: flex;
-    justify-content: space-between;
-}
-.bottom{
-    margin-top: 80px;
-    display: flex;
-    justify-content: space-between;
- 
-}
-.custom-textarea{
-    width: 550px;
-height: 133px;
+.form-select-small{
+    outline: none;
+    border: 1px solid #DEE2E6;
+    width: 259px;
+height: 46px;
 border-radius: 5px;
 border-width: 1px;
-gap: 10px;
-outline: none;
-animation: none; 
-transform: none;
-border: 1px solid #DEE2E6;
+gap: 6px;
+padding: 14px;
 
 }
-.custom-textarea:focus{
-    border: 1px solid #DEE2E6;
-    outline: none;
+.custom-input:focus, .custom-textarea:focus, .form-select:focus {
+    border: 1px solid #8338EC;
+    box-shadow: 0 0 5px rgba(131, 56, 236, 0.5);
 }
-.custom-select-small{
-    width: 259px;
-    height: 46px;
-    border-radius: 5px;
-    border-width: 1px;
-    gap: 6px;
-    padding: 14px;
-    border: 1px solid #DEE2E6;
 
+.custom-textarea {
+    height: 133px;
 }
-.custom-select-small:focus{
-    outline: none;
-    border: 1px solid #DEE2E6;
+
+.validation-divs span {
+
+    font-size: 12px;
+    color: #6C757D;
 }
-.left-cont{
-    width: 550px;
+
+.submit-button {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    margin-top: 50px;
 }
-.date-input {
-    width: 318px;
 
-    border-radius: 5px;
-    border: 1px solid #DEE2E6;
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.date-input input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    font-size: 14px;
-}
-.right-cont{
-    width: 550px;
-    margin-right: 300px;
-  
-}
 .custom-button-submit {
     width: 208px;
     height: 42px;
     border-radius: 5px;
-    gap: 4px;
-    padding-top: 10px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    padding-left: 20px;
     background: #8338EC;
     color: #FFFFFF;
     font-family: 'FiraGO', sans-serif;
-    font-weight: 400;
     font-size: 18px;
-    line-height: 100%;
-    letter-spacing: 0%;
+    font-weight: 400;
     border: none;
     cursor: pointer;
-    margin-right:  300px;
+    transition: background-color 0.3s;
+}
+
+.custom-button-submit:hover {
+    background-color: #B588F4;
+}
+.top-div{
+    display: flex;
+}
+.buttom-div{
+    margin-top: 70px;
+    display: flex;
+}
+.right-div{
+    margin-left:150px;
+}
+.status{
+    margin-left: 53px;
+}
+.custom-date{
+    width: 318px;
+
+border-radius: 5px;
+border-width: 1px;
+gap: 6px;
+padding: 14px;
+
+}
+
+.validation-divs {
+    margin-top: 2px;
+    display: flex;
+    align-items: center; /* centers the icon and text vertically */
+    margin-bottom: 0; /* Remove any margin at the bottom */
+    padding: 0; /* Remove any padding inside the div */
   }
   
-  .custom-button-submit:hover {
-    background-color:  #B588F4;
-    ; /* Optional: Hover effect */
+  .validation-divs svg {
+    color: #6C757D; /* Icon color */
+    width: 12px; /* Adjust icon size */
+    height: 12px; /* Adjust icon size */
+    margin-right: 5px; /* Space between icon and text */
   }
-  .submit-button{
-    margin-top: 130px;
-    width: 100%;
+  
+  .validation-divs p {
+
+    color: #6C757D;
+    font-family: 'Fira GO', sans-serif;
+    font-weight: 350;
+    font-size: 10px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin: 0; /* Remove margin from p */
+  }
+
+.validation-divs {
     display: flex;
-    justify-content: end;
-    margin-bottom: 100px;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .validation-divs p {
+    margin-left: 8px;
+    font-size: 14px;
+    color: #6c757d; /* default color */
+  }
+  
+  .validation-divs.valid p {
+    color: #28a745; /* მწვანე ფერი სწორი მონაცემისთვის */
+  }
+  
+  .validation-divs.valid svg {
+    color: #28a745; /* მწვანე ფერი აიქონისთვის სწორი მონაცემისას */
+  }
+  
+  .validation-divs.invalid p {
+    color: #dc3545; /* წითელი ფერი არასწორი ან ცარიელი მონაცემისათვის */
+  }
+  
+  .validation-divs.invalid svg {
+    color: #dc3545; /* წითელი ფერი აიქონისთვის */
+  }
+  .validation-error p {
+    color: #dc3545; /* წითელი ტექსტი შეცდომისთვის */
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  .custom-button-submit:disabled {
+    background-color: #B588F4; /* ღილაკის გამორთული ფერი */
+    cursor: not-allowed; /* კურსორი 'not-allowed'-ზე */
    
-  }
-  .priority-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-  }
- 
+    border: 1px solid #dee2e6; /* საზღვრის ფერი */
+    pointer-events: none; /* შეზღუდოს მოქმედება */
+}
