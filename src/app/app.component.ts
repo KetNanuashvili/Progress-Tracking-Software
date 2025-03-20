@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DepartmentsComponent } from './components/filter-cards/departments/departments.component';
 import { PrioritiesFilterComponent } from './components/filter-cards/priorities-filter/priorities-filter.component';
+import { ViewDetailComponent } from './components/view-detail/view-detail.component';
 
 
 @Component({
@@ -26,7 +27,8 @@ import { PrioritiesFilterComponent } from './components/filter-cards/priorities-
     HttpClientModule, 
     ReactiveFormsModule ,
     DepartmentsComponent,
-    PrioritiesFilterComponent
+    PrioritiesFilterComponent,
+    ViewDetailComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

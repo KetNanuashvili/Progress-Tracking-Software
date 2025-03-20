@@ -48,6 +48,7 @@
             <div
               class="custom-button"
               [ngStyle]="{ 'border': '1px solid ' + getStatusColor(status.name) }"
+              (click)="viewDetails(item.id)"
             >
               <div class="header-cutom">
                 <div class="left-custom">

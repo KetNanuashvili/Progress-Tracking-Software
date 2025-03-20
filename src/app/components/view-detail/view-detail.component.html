@@ -1,0 +1,179 @@
+<div style="display: flex;">
+
+  <div class="left-div">
+    <div style="display: flex;">
+      <div class="status-div">
+          <img [src]="task.priority.icon" alt="{{ task.priority.name }}" />
+          {{ task.priority.name }}
+      </div>
+      <div class="department-div">
+        <p class="truncate">{{ task.department.name }}</p>
+      </div>
+    </div>
+    <div>
+      <h1>{{ task.name }}</h1>
+      <p class="description-p">{{ task.description }}</p>
+    </div>
+    <div class="details-exam">
+      <h2>დავალების დეტალები</h2>
+      <div style="margin-top: 50px; display: flex; width: 493px; margin-bottom: 50px;">
+        <div class="statusss">
+          <div>
+            <img src="../../../assets/pie-chart.png" alt="">
+          </div>
+
+          <div class="container">
+            <p>სტატუსი</p>
+        </div>
+
+
+        
+        </div>
+
+        <div style="margin-left: 200px;" >
+    
+          <select
+          class="form-select-small"
+          [value]="task?.statusId" 
+          (change)="onStatusChange($event)">
+          <option value="" disabled>აირჩიე სტატუსი</option>
+          <option *ngFor="let status of statuses" [value]="status.id">
+            {{ status.name }}
+          </option>
+        </select>
+        
+        </div>
+
+      </div>
+    
+      <div style="display: flex; width: 493px; margin-bottom: 50px;">
+        <div class="statusss">
+          <div>
+            <img src="../../../assets/user.png" alt="">
+          </div>
+
+          <div class="container">
+            <p>თანამშრომელი</p>
+        </div>
+
+
+        
+        </div>
+
+        <div style="margin-left: 200px; display: flex;">
+          <div> <img class="img-class " [src]="task.employee.avatar" alt="Employee Avatar" /></div>
+          <div style="margin-left: 10px;">
+            <span style="font-family: FiraGO;
+            font-weight: 300;
+            font-size: 11px;
+            line-height: 100%;
+            letter-spacing: 0%;
+            text-align: right;
+            color:#474747;
+
+            "> {{ task.department.name }}</span>
+            <br>
+            <span style="color: #0D0F10;
+            font-family: FiraGO;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+letter-spacing: 0%;
+
+">{{ task.employee.name }} {{ task.employee.surname }}</span>
+          </div>
+         <div >
+         </div>
+        </div>
+
+      </div>
+
+      <div style=" display: flex; width: 493px; margin-bottom: 50px;">
+        <div class="statusss">
+          <div>
+            <img src="../../../assets/calendar.png" alt="">
+          </div>
+
+          <div class="container">
+            <p>დავალების ვადა</p>
+        </div>
+
+
+        
+        </div>
+
+        <div style="margin-left: 200px;">
+          {{ task.due_date | date: 'dd MMM, yyyy' }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="comment-section">
+    <div class="textarea-container">
+      <textarea
+        class="comment-textarea"
+        [(ngModel)]="newComment"
+        placeholder="დაწერე კომენტარი"
+      ></textarea>
+      <div>
+        <button (click)="addComment()" class="comment-button">
+          დააკომენტარე
+        </button>
+      </div>
+    </div>
+  
+    <div class="comment-replies">
+      <div class="comment-div">
+        <h4>კომენტარები</h4>
+        <div class="comment-count">{{ comments.length }}</div>
+      </div>
+  
+      <div class="comment-view">
+        <div class="parent-comment" *ngFor="let comment of comments">
+          <div class="img-div">
+            <img [src]="comment.author_avatar" alt="ავატარი" *ngIf="comment.author_avatar" />
+          </div>
+          <div>
+            <h3>{{ comment.author_nickname }}</h3>
+            <p class="comment-p">{{ comment.text }}</p>
+        
+            <!-- Reply button -->
+            <div class="reply" 
+                 *ngIf="!comment.parent_id && activeParentCommentId !== comment.id" 
+                 (click)="toggleReplyField(comment.id)">
+              <img src="../../../assets/Left 2.png" alt="">
+              <span>უპასუხე</span>
+            </div>
+        
+            <!-- Reply input -->
+            <div *ngIf="activeParentCommentId === comment.id" class="child-comment">
+              <textarea [(ngModel)]="newChildComment" placeholder="დაწერე პასუხი"></textarea>
+              <button (click)="addChildComment(comment.id)" class="comment-button">პასუხის დამატება</button>
+            </div>
+          </div>
+        
+          <!-- Child comments -->
+          <div *ngFor="let child of comment.sub_comments" class="child-comment">
+            <div class="img-div" style="display: flex; margin-top: 20px;">
+              <img [src]="child.author_avatar" alt="ავატარი" />
+              <div >
+                <h3>{{ child.author_nickname }}</h3>
+                <p class="comment-p">{{ child.text }}</p>
+              </div>
+            </div>
+          
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</div>
+
+
+

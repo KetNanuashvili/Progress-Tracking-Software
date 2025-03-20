@@ -4,10 +4,12 @@ import { StatusService } from '../../services/status.service';
 import { TasksService } from '../../services/tasks/tasks.service';
 import { DepartmentsComponent } from '../filter-cards/departments/departments.component';
 import { PrioritiesFilterComponent } from '../filter-cards/priorities-filter/priorities-filter.component';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule,DepartmentsComponent, PrioritiesFilterComponent],
+  imports: [CommonModule,DepartmentsComponent, PrioritiesFilterComponent,RouterModule],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
@@ -16,6 +18,7 @@ export class MainPageComponent {
   statusesWithItems: { id: number; name: string; items: any[] }[] = [];
   showDepartments: boolean = false;  // Flag to control visibility of the DepartmentsComponent
   showPriorities: boolean= false;
+
 
 
   getDepartmentColor(departmentId: number): string {
@@ -40,11 +43,14 @@ export class MainPageComponent {
   }
   
   constructor(  private statusService: StatusService,
-    private tasksService:TasksService
+    private tasksService:TasksService, 
+    private router: Router
    ){
 
   }
-  
+  viewDetails(taskId: string): void {
+    this.router.navigate(['/view-details', taskId]); // აქ `navigate` ფუნქცია სწორად იმუშავებს
+  }
   ngOnInit(): void {
     // პირველი ამოწმდება სტატუსები
     this.statusService.getStatuses().subscribe({

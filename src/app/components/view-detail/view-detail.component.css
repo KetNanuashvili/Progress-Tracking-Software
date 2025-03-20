@@ -1,0 +1,390 @@
+.status-div{
+  border: 0.5px solid #FFBE0B;
+  width: 106px;
+border-radius: 3px;
+border-width: 0.5px;
+gap: 4px;
+padding-top: 4px;
+padding-right: 5px;
+padding-bottom: 4px;
+padding-left: 5px;
+}
+.left-div{
+  margin-left: 120px;
+}
+.department-div {
+  margin-left: 10px;
+  background: #FF66A8;
+  width: 100px;
+  height: 30px;
+  border-radius: 15px;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+  display: flex; /* Enables Flexbox */
+  align-items: center; /* Centers content vertically */
+  justify-content: center; /* Centers content horizontally */
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  max-width: 80px; /* adjust if necessary */
+}
+h1{
+  margin-top: 20px;
+  color: #212529;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 34px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  
+}
+.description-p{
+  margin-top: 40px;
+  color: #000000;
+  font-family: FiraGO;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  width: 715px;
+  height: 108px;
+  gap: 10px;
+  
+}
+h2{
+  font-family: FiraGO;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #2A2A2A;
+
+}
+.statusss{
+  display: flex;
+}
+.container {
+  position: relative;
+  margin-left: 10px;
+}
+
+.container p {
+  position: absolute;
+  top: 0; /* ზედა ნაწილში */
+  left: 0; /* სურვილისამებრ შეგიძლიათ დააყენოთ */
+  margin: 0;
+  color: #474747;
+  font-family: FiraGO;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  width: 200px;
+  
+}
+.form-select-small{
+  border: 1px solid #CED4DA;
+  width: 259px;
+height: 45x;
+border-radius: 5px;
+border-width: 1px;
+gap: 10px;
+padding: 14px;
+font-family: FiraGO;
+font-weight: 300;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: 0%;
+color: #0D0F10;
+outline: none;
+}
+.img-class {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.comment-section{
+  width: 741px;
+top: 199px;
+left: 1059px;
+border-radius: 10px;
+border-width: 0.3px;
+border: 0.3px solid #DDD2FF;
+background-color: #F8F3FEA6;
+}
+.textarea-container {
+  position: relative;
+  width: 651px;
+  height: 135px;
+  margin: 40px 0 0 45px;
+}
+
+.comment-textarea {
+  width: 100%;
+  height: 100%;
+  border: 0.3px solid #ADB5BD;
+  border-radius: 10px;
+  resize: none;
+  outline: none;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.comment-textarea::placeholder {
+  font-family: FiraGO;
+  font-weight: 350;
+  font-size: 14px;
+  color: #898989;
+}
+
+.comment-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 155px;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  background: #8338EC;
+  font-family: FiraGO;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+h4{
+  font-family: FiraGO;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0%;
+color:   #000000;
+
+}
+.comment-div {
+  display: flex;
+  align-items: center; /* ტექსტი და ბადჯი ვერტიკალურად ცენტრში */
+  gap: 10px; /* სივრცე ტექსტსა და ქაუნთს შორის */
+}
+
+.comment-count {
+  width: 30px;
+  height: 22px;
+  border-radius: 30px;
+  background-color: #8338EC;
+  text-align: center;
+  font-family: FiraGO;
+  font-weight: 500;
+  font-size: 14px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* რიცხვი შუაში ჩასვავს */
+}
+.comment-replies{
+  margin-left: 45px;
+  margin-top: 20px;
+}
+.parent-comment {
+  position: relative;
+  display: flex; /* Flexbox გააქტიურება ელემენტების გვერდიგვერდ განლაგებისთვის */
+  align-items: center;
+  gap: 15px; 
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 60px;
+}
+.child-comment {
+  display: flex;
+  flex-direction: column; /* ტექსტარეას და ღილაკის ვერტიკალური განლაგება */
+  align-items: flex-start; /* მარცხნივ გასწორება */
+  gap: 10px; /* სივრცე ტექსტსა და ღილაკს შორის */
+  padding: 10px; /* ნაკლები padding ტექსტარეასთვის */
+  border-radius: 10px; 
+  margin-left: 40px; /* კომენტარების განლაგების ფორმატირების სივრცე */
+  position: relative; 
+  min-height: 70px; /* სივრცე ტოვებს კომენტარებისთვის ან ტექსტარეასთვის */
+  margin-top: -20px; /* ტექსტარეა ზემოთ გადავწიოთ */
+}
+.img-div {
+  margin-right: 10px;
+}
+.img-div img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+h3 {
+  font-family: FiraGO;
+  font-weight: 500;
+  font-size: 18px;
+  color: #021526;
+  margin: 0; /* ზედმეტი სივრცე რომ არ იყოს */
+}
+
+.comment-p {
+  max-width: 548px;
+  color: #021526;
+  font-family: FiraGO;
+  font-weight: 350;
+  font-size: 16px;
+  margin-top: 5px; /* ცოტა დაშორება სახელსა და ტექსტს შორის */
+}
+span{
+  margin-left: 5px;
+
+  color: #8338EC;
+  font-family: FiraGO;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  cursor: pointer;
+}
+
+/* რეფლაის ღილაკი */
+.reply {
+  margin-top: 10px;
+  cursor: pointer;
+  color: #8338EC;
+  font-family: FiraGO;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.reply img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.reply:hover {
+  opacity: 0.7;
+}
+
+/* პასუხის ტექსტ ველი */
+.child-comment textarea {
+  width: 100%;
+  border: 1px solid #ADB5BD;
+  border-radius: 10px;
+  resize: none;
+  padding: 8px; /* შიგნით სივრცე ტექსტარეასთვის */
+  font-family: FiraGO;
+  font-size: 14px;
+  height: 50px; /* სიმაღლე უფრო პატარაა */
+  margin-bottom: 5px; /* ქვედა დაშორება ღილაკისთვის */
+}
+
+.child-comment textarea::placeholder {
+  color: #ADB5BD;
+}
+
+.child-comment .comment-button {
+
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 155px;
+  height: 35px;
+  border: none;
+  border-radius: 20px;
+  background: #8338EC;
+  font-family: FiraGO;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.child-comment .comment-button:hover {
+  background-color: #6A2DBE;
+  border: none;
+}
+
+.reply-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 40px; /* შესაბამისი სივრცე მშობელი კომენტარიდან */
+  padding: 15px;
+  position: relative; 
+}
+.reply-input textarea {
+  width: 100%; /* მშობელი დივის შესაბამისობა */
+  border: 1px solid #ADB5BD;
+  border-radius: 10px;
+  resize: none;
+  padding: 10px;
+  font-family: FiraGO;
+  font-size: 14px;
+}
+
+.reply img {
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+}
+
+.reply[hidden] {
+  display: none; /* ღილაკი სრულად დაიმალოს */
+}
+
+.child-comment textarea {
+  width: 100%;
+  height: 70px;
+  border: 1px solid #ADB5BD;
+  border-radius: 10px;
+  resize: none;
+  padding: 10px;
+}
+.child-comment textarea:focus{
+
+  outline: none;
+}
+.child-comment {
+  display: flex;
+  position: absolute;
+  bottom: 10px; 
+  left: 45px;
+  width: 400px;
+  top: 100px;
+}
+.child-comment .comment-button {
+  background-color: #8338EC;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  /* padding: 5px 15px; */
+  cursor: pointer;
+  align-self: flex-start;
+  /* margin-top: 5px; */
+  bottom: 23px;
+  right: 2px;
+}
+.child-comment h3 {
+  font-family: FiraGO;
+  font-weight: 500;
+  font-size: 16px;
+  color: #021526;
+  margin: 0; /* ზედმეტი სივრცე ამოვიღოთ */
+}
+
+.child-comment p {
+  max-width: 548px;
+  color: #021526;
+  font-family: FiraGO;
+  font-weight: 350;
+  font-size: 14px;
+  margin-top: 5px; /* მცირე დაშორება */
+}
+
+.reply[hidden] {
+  display: none;
+}
