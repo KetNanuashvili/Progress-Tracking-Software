@@ -76,4 +76,6 @@
   .submit-button:hover {
     background-color: #6828b2; /* Darken button on hover */
   }
-  
+  .employee-name{
+    margin-left: 8px;
+  }
