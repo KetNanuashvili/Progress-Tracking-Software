@@ -1,82 +1,78 @@
 /* Card container styling */
+
 .card-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .card {
-    border: 0.5px solid #8338EC;
-    position: absolute;
-    top: 350px;
-    left: 120px;
-    border-radius: 10px;
-    border-width: 0.5px;
-    padding-top: 40px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-    padding-right: 60px;
-    background-color: white;
-    z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adding shadow for better visibility */
-    overflow-y: auto; /* Allow scrolling if content overflows */
-  }
-  
-  /* Label with department name */
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px; /* Adds space between each department */
-    cursor: pointer;
-  }
-  
-  /* Department checkbox styles */
-  .department-checkbox {
-    width: 22px;
-    height: 22px;
-    border-radius: 6px;
-    border-width: 1.5px;
-    margin-right: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border-color: none;
-  }
-  
-  .department-checkbox:checked {
-    background-color: currentColor;
-    border-color: currentColor;
-    color: white; /* Change text color inside the checkbox when checked */
-  }
-  
-  /* Text style for department name */
-  .department-name {
-    font-family: 'FiraGO', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-  
-  /* Optional: Hover effect for checkboxes */
-  .department-checkbox:hover {
-    opacity: 0.8;
-  }
-  .submit-button{
-    padding-left: 30px ;
-    background: #8338EC;
-    width: 155px;
-    height: 35px;
-    border-radius: 20px;
-    gap: 10px;
-    padding-top: 8px;
-    padding-right: 20px;
-    padding-bottom: 8px;
-    padding-left: 20px;
-    color: white   ;
-    font-family: FiraGO;
-font-weight: 400;
-font-size: 16px;
-line-height: 100%;
-letter-spacing: 0%;
-border: none;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Card styling */
+.card {
+  border: 0.5px solid #8338EC;
+  position: absolute;
+  top: 350px;
+  left: 120px;
+  border-radius: 10px;
+  padding: 40px 60px 30px 30px;
+  background-color: white;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: none;
+}
+
+/* Label with department name */
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Adds space between each department */
+  cursor: pointer;
+}
+
+/* Department checkbox styles */
+.department-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border-width: 1.5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.department-checkbox:checked {
+  background-color: currentColor;
+  border-color: currentColor;
+  color: white; /* Change text color inside the checkbox when checked */
+}
+
+/* Text style for department name */
+.department-name {
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+}
+
+/* Optional: Hover effect for checkboxes */
+.department-checkbox:hover {
+  opacity: 0.8;
+}
+
+/* Submit button styles */
+.submit-button {
+  background: #8338EC;
+  width: 155px;
+  height: 35px;
+  border-radius: 20px;
+  color: white;
+  font-family: 'FiraGO', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #6828b2; /* Darken button on hover */
+}

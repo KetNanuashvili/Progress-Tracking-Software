@@ -19,7 +19,7 @@
       <div style="margin-top: 50px; display: flex; width: 493px; margin-bottom: 50px;">
         <div class="statusss">
           <div>
-            <img src="../../../assets/pie-chart.png" alt="">
+            <img src="./assets/pie-chart.png" alt="">
           </div>
 
           <div class="container">
@@ -32,15 +32,9 @@
 
         <div style="margin-left: 200px;" >
     
-          <select
-          class="form-select-small"
-          [value]="task?.statusId" 
-          (change)="onStatusChange($event)">
-          <option value="" disabled>აირჩიე სტატუსი</option>
-          <option *ngFor="let status of statuses" [value]="status.id">
-            {{ status.name }}
-          </option>
-        </select>
+    
+            {{ task.status.name }}
+      
         
         </div>
 
@@ -49,7 +43,7 @@
       <div style="display: flex; width: 493px; margin-bottom: 50px;">
         <div class="statusss">
           <div>
-            <img src="../../../assets/user.png" alt="">
+            <img src="./assets/user.png" alt="">
           </div>
 
           <div class="container">
@@ -91,7 +85,7 @@ letter-spacing: 0%;
       <div style=" display: flex; width: 493px; margin-bottom: 50px;">
         <div class="statusss">
           <div>
-            <img src="../../../assets/calendar.png" alt="">
+            <img src="./assets/calendar.png" alt="">
           </div>
 
           <div class="container">
@@ -142,7 +136,7 @@ letter-spacing: 0%;
             <div class="reply" 
                  *ngIf="!comment.parent_id && activeParentCommentId !== comment.id" 
                  (click)="toggleReplyField(comment.id)">
-              <img src="../../../assets/Left 2.png" alt="">
+              <img src="./assets/Left 2.png" alt="">
               <span>უპასუხე</span>
             </div>
         

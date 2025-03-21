@@ -13,7 +13,7 @@ export class CommentsService {
   getComments(taskId: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${taskId}/comments`, {
       headers: new HttpHeaders({
-        Authorization: 'Bearer 9e760d76-3cdc-42f9-a1b1-cc9f91cfa81b'
+        Authorization: 'Bearer 9e7c4422-da28-4144-b24f-fcde2abfddf9'
       })
     });
   }
@@ -27,7 +27,7 @@ export class CommentsService {
   
     return this.http.post(`${this.apiUrl}/${taskId}/comments`, body, {
       headers: new HttpHeaders({
-        Authorization: 'Bearer 9e760d76-3cdc-42f9-a1b1-cc9f91cfa81b'
+        Authorization: 'Bearer 9e7c4422-da28-4144-b24f-fcde2abfddf9'
       })
     });
   }

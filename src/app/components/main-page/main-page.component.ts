@@ -6,20 +6,27 @@ import { DepartmentsComponent } from '../filter-cards/departments/departments.co
 import { PrioritiesFilterComponent } from '../filter-cards/priorities-filter/priorities-filter.component';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { EmployeesComponent } from '../filter-cards/employees/employees.component';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [CommonModule,DepartmentsComponent, PrioritiesFilterComponent,RouterModule],
+  imports: [CommonModule,DepartmentsComponent, PrioritiesFilterComponent,RouterModule, EmployeesComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
   activeButton: string = '';
   statusesWithItems: { id: number; name: string; items: any[] }[] = [];
-  showDepartments: boolean = false;  // Flag to control visibility of the DepartmentsComponent
-  showPriorities: boolean= false;
+  allTasks: any[] = [];
+  showDepartments: boolean = false;
+  isPriorityCardOpen: boolean = false; 
+  showPriorities: boolean = false;
+  selectedDepartments: number[] = [];
+  isCardOpen: boolean = false;
+  isEmployeeCardOpen: boolean = false;
+  selectedEmployees: number[] = [];
 
-
+  selectedPriorities: number[] = [];
 
   getDepartmentColor(departmentId: number): string {
     switch (departmentId) {
@@ -48,34 +55,52 @@ export class MainPageComponent {
    ){
 
   }
-  viewDetails(taskId: string): void {
-    this.router.navigate(['/view-details', taskId]); // აქ `navigate` ფუნქცია სწორად იმუშავებს
-  }
+ 
+
   ngOnInit(): void {
-    // პირველი ამოწმდება სტატუსები
     this.statusService.getStatuses().subscribe({
       next: (statuses) => {
-        // დავალებების ჩაბეჭდვა
         this.tasksService.getTasks().subscribe({
           next: (tasks) => {
-            // სტატუსის მიხედვით დავალებების ჯგუფირება
+            this.allTasks = tasks; // Store all tasks
             this.statusesWithItems = statuses.map((status) => ({
               ...status,
-              items: this.getItemsByStatusId(status.id, tasks),
+              items: this.getItemsByStatusId(status.id, tasks), // Use all tasks to map statuses
             }));
           },
           error: (err) => {
-            console.error('შეცდომა დავალებებში:', err);
+            console.error('Error fetching tasks:', err);
           },
         });
       },
       error: (err) => {
-        console.error('შეცდომა სტატუსებში:', err);
+        console.error('Error fetching statuses:', err);
       },
     });
-  }// დავალებების სტატუსის მიხედვით გამორჩევა
+  }
+  
+  
+  // დავალებების სტატუსის მიხედვით გამორჩევა
   getItemsByStatusId(statusId: number, tasks: any[]): any[] {
-    return tasks.filter(task => task.status.id === statusId);
+    return tasks.filter((task) => 
+      task.status.id === statusId &&
+      (this.selectedDepartments.length === 0 || this.selectedDepartments.includes(task.department.id)) &&
+      (this.selectedPriorities.length === 0 || this.selectedPriorities.includes(task.priority.id)) &&
+      (this.selectedEmployees.length === 0 || this.selectedEmployees.includes(task.employee.id))
+    );
+  }
+
+
+  onDepartmentsChange(selectedDepartments: number[]) {
+    this.selectedDepartments = selectedDepartments;
+    this.updateFilteredTasks();
+  }
+
+  updateFilteredTasks(): void {
+    this.statusesWithItems = this.statusesWithItems.map(status => ({
+      ...status,
+      items: this.getItemsByStatusId(status.id, this.allTasks)
+    }));
   }
 
   getStatusColor(status: string): string {
@@ -130,8 +155,43 @@ export class MainPageComponent {
   
 
   dropdownVisible: boolean = false;
-
-  toggleDropdown() {
-    this.dropdownVisible = !this.dropdownVisible;
+  closeCard(): void {
+    this.isCardOpen = false; // Close the card
+    console.log("Card is closed");
   }
+  toggleCardVisibility(): void {
+    this.isCardOpen = !this.isCardOpen;
+    console.log('Card visibility toggled:', this.isCardOpen);
+  }
+  viewDetails(taskId: string): void {
+    this.router.navigate(['/view-details', taskId]);
+  }
+  toggleDropdown() {
+    this.isCardOpen = !this.isCardOpen;
+    console.log('Dropdown visibility toggled:', this.isCardOpen);
+  }
+
+
+  togglePriorityCard(): void {
+    this.isPriorityCardOpen = !this.isPriorityCardOpen;
+    console.log('Priority card toggled:', this.isPriorityCardOpen);
+  }
+
+  onPrioritiesChange(selectedPriorities: number[]): void {
+    this.selectedPriorities = selectedPriorities;
+    console.log('Selected priorities updated:', this.selectedPriorities);
+    this.updateFilteredTasks();
+  }
+
+  toggleEmployeeCard(): void {
+    this.isEmployeeCardOpen = !this.isEmployeeCardOpen;
+    console.log('Employee card toggled:', this.isEmployeeCardOpen);
+  }
+
+  onEmployeesChange(selectedEmployees: number[]): void {
+    this.selectedEmployees = selectedEmployees;
+    console.log('Selected Employees:', this.selectedEmployees);
+    this.updateFilteredTasks();
+  }
+  
 }

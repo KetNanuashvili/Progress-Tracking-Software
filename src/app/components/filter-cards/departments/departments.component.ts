@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DepartmentsService } from '../../../services/departaments/departaments.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -16,6 +16,11 @@ export interface Department {
 
 export class DepartmentsComponent implements OnInit{
   departments: Department[] = [];
+  selectedDepartments: number[] = []; // Array to hold selected department IDs
+  @Output() selectedDepartmentsChange = new EventEmitter<number[]>();
+  @Output() closeCardEvent = new EventEmitter<void>();// EventEmitter to send signal to parent
+
+  
   constructor(private departmentsService:DepartmentsService){
 
   }
@@ -59,7 +64,21 @@ export class DepartmentsComponent implements OnInit{
   }
 
   onDepartmentSelect(departmentId: number) {
-    console.log('Selected Department ID:', departmentId);
-    // Additional logic when a department is selected
+    // Toggle the department selection
+    const index = this.selectedDepartments.indexOf(departmentId);
+    if (index === -1) {
+      this.selectedDepartments.push(departmentId); // Add to selected if not already selected
+    } else {
+      this.selectedDepartments.splice(index, 1); // Remove if already selected
+    }
+  }
+
+  onSubmit(): void {
+    // Emit the selected departments to the parent
+    this.selectedDepartmentsChange.emit(this.selectedDepartments);
+    
+    // Emit event to close the card
+    this.closeCardEvent.emit();
+    console.log('Card Close Event Emitted');
   }
 }

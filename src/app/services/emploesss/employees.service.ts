@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EmployeesService {
   private apiUrl = 'https://momentum.redberryinternship.ge/api/employees';
-  private token = '9e760d76-3cdc-42f9-a1b1-cc9f91cfa81b';
+  private token = '9e7c4422-da28-4144-b24f-fcde2abfddf9';
 
   constructor(private http: HttpClient) {}
 

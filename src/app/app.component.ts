@@ -11,6 +11,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DepartmentsComponent } from './components/filter-cards/departments/departments.component';
 import { PrioritiesFilterComponent } from './components/filter-cards/priorities-filter/priorities-filter.component';
 import { ViewDetailComponent } from './components/view-detail/view-detail.component';
+import { EmployeesComponent } from './components/filter-cards/employees/employees.component';
+
+
+
 
 
 @Component({
@@ -28,7 +32,9 @@ import { ViewDetailComponent } from './components/view-detail/view-detail.compon
     ReactiveFormsModule ,
     DepartmentsComponent,
     PrioritiesFilterComponent,
-    ViewDetailComponent
+    ViewDetailComponent,
+    EmployeesComponent
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
